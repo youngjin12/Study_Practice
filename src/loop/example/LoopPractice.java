@@ -364,16 +364,12 @@ public class LoopPractice {
 		 */
 		System.out.println("자연수 하나를 입력하세요 : ");
 		int num = sc.nextInt();
-		int r = 0;
-		int t = 0;
 		int c = 0;
 		for (int i = 1; i <= num; i++) {
 			if (i % 2 == 0) {
 				System.out.print(i + " ");
-				// r = i;
 			} else if (i % 3 == 0) {
 				System.out.print(i + " ");
-				// t = i;
 			}
 			if (i % 6 == 0) {
 				c++;
@@ -449,68 +445,90 @@ public class LoopPractice {
 			for (int j = 1; j <= num; j++) {
 				if (i == 1 || i == num || j == 1 || j == num) {
 					System.out.print("*");
-				}else {
-							System.out.print(" ");
+				} else {
+					System.out.print(" ");
 				}
 			}
-				System.out.println();
-			}
-
+			System.out.println();
 		}
-	
+
+	}
+
 	public void practice23() {
 		int n = 1;
-		for(int i = 1; i <= 5; i++) {
-			for(int j = 1; j <= 5-i; j++) {
+		for (int i = 1; i <= 5; i++) {
+			for (int j = 1; j <= 5 - i; j++) {
 				System.out.print(" ");
 			}
-			for(int j = 1; j <= i*2-1; j++) {
+			for (int j = 1; j <= i * 2 - 1; j++) {
 				System.out.print(j);
-			}System.out.println();
+			}
+			System.out.println();
 		}
-		for(int i = 1; i <= 4; i++) {
-			for(int j = 4-1; j >= 4-i; j--) {
+		for (int i = 1; i <= 4; i++) {
+			for (int j = 4 - 1; j >= 4 - i; j--) {
 				System.out.print(" ");
 			}
-			for(int j = 1; j <= (4*2)-n; j++) {
+			for (int j = 1; j <= (4 * 2) - n; j++) {
 				System.out.print(j);
-		      
-			}  n+=2 ;
+
+			}
+			n += 2;
 			System.out.println();
 		}
 	}
+
 	public void practice24() {
 		int r = 3;
 		int e = r;
 		int d = r;
-		
-		for(int i = 1; i <= 3; i++) {
-			for(int j = 1; j <= 5; j++) {
-				if(j == e || j == d ) {
-					System.out.print("*");
-					e--; d++;
-				}else {
-					System.out.print(" ");
-				}	
-			}System.out.println();
-		}
-	}
-	
 
-	
+		for (int i = 1; i <= 3; i++) {
+			for (int j = 5; j >= 1; j--) {
+				if (j == e || j == d) {
+					System.out.print("*");
+
+				} else {
+					System.out.print(" ");
+				}
+
+			}
+			e--;
+			d++;
+			System.out.println();
+
+		}
+		e = 2;
+		d = 4;
+		for (int i = 1; i <= 2; i++) {
+			for (int j = 5; j >= 1; j--) {
+				if (j == e || j == d) {
+					System.out.print("*");
+
+				} else {
+					System.out.print(" ");
+				}
+
+			}
+			e++;
+			d--;
+			System.out.println();
+		}
+
+	}
+
 	public void practice25() {
 
 		for (int i = 1; i <= 5; i++) {
 			for (int j = 1; j <= 10; j++) {
 				if (i == 1 || i == 5 || j == 1 || j == 10) {
 					System.out.print("*");
-				}else {
-							System.out.print(" ");
+				} else {
+					System.out.print(" ");
 				}
 			}
-				System.out.println();
-			}
-
+			System.out.println();
 		}
-}
 
+	}
+}
