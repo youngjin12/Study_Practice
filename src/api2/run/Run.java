@@ -1,16 +1,16 @@
-package api.run;
+package api2.run;
 
-import api.view.TokenMenu;
+import api2.controller.SpaceUpper;
 
 public class Run {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TokenMenu tm = new TokenMenu();
 		
-		tm.mainMenu();
+		SpaceUpper su = new SpaceUpper();
+		
+		su.spaceToUpper();
 
-		
 	}
 
 }
