@@ -8,7 +8,7 @@ public class Run {
 		// TODO Auto-generated method stub
 		
 		BoardMenu bm = new BoardMenu();
-		
+		bm.mainMenu();
 	}
 
 }

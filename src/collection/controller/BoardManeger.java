@@ -28,26 +28,39 @@ public class BoardManeger {
 		System.out.println("작성자 : ");
 		String author = sc.nextLine();
 		
-		Date date = new Date();
-		
-		System.out.println("글 내용 : ");
-		
-		StringBuilder sb = new StringBuilder();
-		
-		while(true) {
-			
-			String str = sc.nextLine();
-			if(str.equals("exit")) {
-				return;
-			}else {
-				sb.append(str);
-				sb.append("\n");
-				
+		String realAuthor = "";
+		for(int i = 0; i < author.length(); i++) {
+			char ch = author.charAt(i);
+			if(ch != ' ') {
+				realAuthor += ch;
 			}
 			
 		}
 		
-		Board b = new Board(bd.getLastBoardNo(), title, author, date, sb);
+		
+		
+		
+		Date date = new Date();
+		
+		System.out.println("글 내용(exit 입력 시 종료) : ");
+				
+		String str = "";
+		String con = "";
+		
+		while(true) {
+			str = sc.nextLine();
+			
+			if(str.equals("exit")) 		
+				break;
+					
+				con +=  str + "\n";
+				
+		}
+		try { bd.writeBoard(new Board(bd.getLastBoardNo() +1, title, realAuthor, date, con));
+		}catch(IndexOutOfBoundsException e) {
+			
+		Board b = new Board(1, title, realAuthor, date, con);
+		}
 		
 		
 		
@@ -60,10 +73,8 @@ public class BoardManeger {
 		
 		Iterator<Board> iter = al.iterator(); 
 		
-		while(iter.hasNext()) {
-			Board b = iter.next();
-			
-			System.out.println(b);
+		while(iter.hasNext()) {			
+			System.out.println(iter.next());
 			
 			
 		}
@@ -74,12 +85,15 @@ public class BoardManeger {
 		System.out.println("조회할 글 번호 : ");
 		int num = sc.nextInt();
 		
-		bd.displayBoard(num);
+	Board b = bd.displayBoard(num);
 		
+	
 		bd.upReadCount(num);
 		
-		if(bd.displayBoard(num) == null) {
+		if(b == null) {
 			System.out.println("조회된 글이 없습니다.");
+		}else {
+			System.out.println(b);
 		}
 
 	}
@@ -149,14 +163,18 @@ public class BoardManeger {
 		System.out.println("검색할 제목 : ");
 		String name = sc.nextLine();
 		
-		ArrayList<Board> list = new ArrayList<Board>();
-		list = bd.displayBoard();
 		
-		if(bd.displayBoard(num) == null) {
+		ArrayList<Board> list = new ArrayList<Board>();
+		list = bd.searchBoard(name);
+
+		
+		if(list.isEmpty()) {
 			System.out.println("검색 결과가 없습니다.");
 		}else {
-			Iterator<Board> iter = new Iterator<Board>();
-			
+			for(int i = 0; i < list.size(); i++) {
+				System.out.println(list.get(i));
+				
+			}
 			
 		}
 		
